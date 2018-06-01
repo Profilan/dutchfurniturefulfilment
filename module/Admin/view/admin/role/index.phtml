@@ -1,0 +1,33 @@
+
+<h2>Rollen</h2>
+
+<a href="/admin/role/add" class="btn btn-primary">Nieuwe rol</a>
+
+<hr>
+
+<?php if (count($roles) > 0): ?>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Naam</th>
+			<th>Ouder</th>
+			<th>Akties</th>
+		</tr>
+	</thead>
+	<tbody>
+        <?php foreach($roles as $role): ?>
+        <tr>
+        	<td><?php echo $role->getRoleId() ?></td>
+        	<td><?php echo $role->getParent() ? $role->getParent()->getRoleId() : "-" ?>
+        	<td>
+        		<?php if ($role->getParent()) : ?>
+        		<a href="/admin/role/edit/<?php echo $role->getRoleId() ?>">Bewerken</a>
+        		<?php endif; ?>
+        	</td>
+        </tr>
+        <?php endforeach; ?>
+	</tbody>
+</table>
+<?php else: ?>
+Er zijn geen rollen
+<?php endif; ?>

@@ -1,0 +1,32 @@
+<h2>Gebruikers</h2>
+
+<a href="/admin/user/add" class="btn btn-primary">Nieuwe gebruiker</a>
+
+<hr>
+
+<?php if (count($users) > 0): ?>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Gebruikersnaam</th>
+			<th>Debiteurnummer</th>
+			<th>Akties</th>
+		</tr>
+	</thead>
+	<tbody>
+        <?php foreach($users as $user): ?>
+        <tr>
+        	<td><?php echo $user->getUsername() ?></td>
+        	<td><?php echo $user->getDebcode() ?></td>
+        	<td>
+        		<a href="/admin/user/edit/<?php echo $user->getId() ?>">Bewerken</a>&nbsp;|&nbsp;
+        		<a href="/admin/user/changepassword/<?php echo $user->getId() ?>">Wijzig wachtwoord</a>&nbsp;|&nbsp;
+        		<a href="/admin/user/delete/<?php echo $user->getId() ?>">Verwijderen</a>
+        	</td>
+        </tr>
+        <?php endforeach; ?>
+	</tbody>
+</table>
+<?php else: ?>
+Er zijn geen gebruikers
+<?php endif; ?>

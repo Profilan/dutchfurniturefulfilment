@@ -1,0 +1,30 @@
+<?php
+
+use Application\Entity\User;
+use Application\Entity\Url;
+
+/**
+ *
+ * @var User $user
+ */
+$user = $this->user;
+
+?>
+
+<div class="col-md-6 col-md-offset-3">
+	<div class="row">
+		<h2>Gebruiker verwijderen</h2>
+		
+		<hr>
+	
+	</div>
+
+	<form action="/admin/user/delete/<?php echo $user->getId() ?>" method="post">
+		<p>Weet u zeker dat gebruiker <b>"<?php echo $user->getDisplayName() ?>"</b>  moet worden verwijderd?
+		
+		<div class="form-group">
+			<button class="btn btn-primary">Ja</button>
+			<a href="/admin/user" class="btn btn-default">Nee</a>
+		</div>
+		
+	</form>

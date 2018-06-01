@@ -1,0 +1,26 @@
+<h2>Url's</h2>
+
+<a href="/admin/url/add" class="btn btn-primary">Nieuwe url</a>
+
+<hr>
+
+<?php if (count($urls) > 0): ?>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Naam</th>
+			<th>Akties</th>
+		</tr>
+	</thead>
+	<tbody>
+        <?php foreach($urls as $url): ?>
+        <tr>
+        	<td><?php echo $url->getUrlName() ?></td>
+        	<td><a href="/admin/url/edit/<?php echo $url->getId() ?>">Bewerken</a></td>
+        </tr>
+        <?php endforeach; ?>
+	</tbody>
+</table>
+<?php else: ?>
+Er zijn geen url's
+<?php endif; ?>
